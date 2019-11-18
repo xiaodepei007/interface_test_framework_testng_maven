@@ -1,0 +1,62 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--在多文件的时候，每个suite的name必须不一样！-->
+<suite name="suite_common" >
+    <listeners>
+        <listener class-name="interface_test_framework_testng_maven.listeners.CommonHookListener"/>
+    </listeners>
+    <!--公共的配置放这里-->
+    <parameter name="scheme" value="https"/>
+    <parameter name="host" value="api.bilibili.com"/>
+    <parameter name="requestCharset" value="utf-8"/>
+    <parameter name="responseCharset" value="utf-8"/>
+    <parameter name="port" value="443"/>
+    <!--init-->
+    <test name="测试套件初始化测试集">
+        <classes>
+            <class name="interface_test_framework_testng_maven.init.Init"/>
+        </classes>
+    </test>
+
+    <!--<test name="测试demo" preserve-order="true">-->
+        <!--<classes>-->
+            <!--<class name="interface_test_framework_testng_maven.UnitTest" />-->
+            <!--<class name="interface_test_framework_testng_maven.UnitAllureTest" />-->
+            <!--<class name="interface_test_framework_testng_maven.UnitTestGuice" />-->
+            <!--<class name="interface_test_framework_testng_maven.UnitTestGuiceMultiFile" />-->
+            <!--<class name="interface_test_framework_testng_maven.CommonBaseTest" />-->
+            <!--<class name="interface_test_framework_testng_maven.ClassLoadFileBaseTest" />-->
+            <!--<class name="interface_test_framework_testng_maven.ClassLoadMultiFileBaseTest" />-->
+            <!--<class name="interface_test_framework_testng_maven.NoticeTest" />-->
+        <!--</classes>-->
+    <!--</test>-->
+
+
+    <!--<test name="接口请求功能t1" preserve-order="true">-->
+        <!--<classes>-->
+            <!--<class name="interface_test_framework_testng_maven.RequestViaCsvTest">-->
+                <!--<parameter name="path" value="/x/member/security/status"/>-->
+                <!--<parameter name="method" value="post"/>-->
+                <!--<parameter name="post_method" value="URL_ENCODED"/>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+
+    <test name="接口请求功能t2" preserve-order="true">
+        <classes>
+            <!--<class name="interface_test_framework_testng_maven.RequestViaTestNGParameterTest">-->
+                <!--<parameter name="mid" value="58366"/>-->
+                <!--<parameter name="path" value="/x/member/security/status"/>-->
+                <!--<parameter name="method" value="get"/>-->
+            <!--</class>-->
+            <class name="interface_test_framework_testng_maven.RequestViaCsvTest">
+                <parameter name="path" value="/x/member/security/status"/>
+                <parameter name="method" value="post"/>
+                <parameter name="post_method" value="URL_ENCODED"/>
+            </class>
+        </classes>
+    </test>
+
+
+</suite>
+
